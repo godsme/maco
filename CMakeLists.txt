@@ -8,6 +8,8 @@ include_directories(
     "${CMAKE_CURRENT_SOURCE_DIR}/tests"
 )
 
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -E ")
+
 add_executable(maco
         tests/catch.cpp
         include/maco/basic.h

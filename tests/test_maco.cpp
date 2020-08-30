@@ -3,7 +3,7 @@
 //
 
 #include <catch.hpp>
-#include <maco/basic.h>
+#include <maco/repeat_call.h>
 
 namespace {
    TEST_CASE("stringify") {
@@ -21,10 +21,22 @@ namespace {
 
 #define __succ(n) __MACO_concat(__succ_, n)
 
+#define __r(n, x) __MACO_concat(x, n)
+
    TEST_CASE("succ") {
       static_assert(1 == __succ(0));
       static_assert(2 == __succ(1));
       static_assert(3 == __succ(2));
+   }
+
+#define num_macro(n, x) , n + x
+
+constexpr int my_array[4] = {0 __MACO_repeat_call_3(num_macro, 0, 1,2,3) };
+
+   TEST_CASE("repeat call + succ") {
+      REQUIRE(my_array[1] == 1);
+      REQUIRE(my_array[2] == 3);
+      REQUIRE(my_array[3] == 5);
    }
 
 }

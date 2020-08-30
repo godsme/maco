@@ -4,6 +4,8 @@ head = '''
 #ifndef __MACO_MACRO_REPEAT_CALL_H_
 #define __MACO_MACRO_REPEAT_CALL_H_
 
+#include <maco/int_succ.h>
+
 '''
 
 def gen_repeat_call_macro(n):
@@ -11,7 +13,7 @@ def gen_repeat_call_macro(n):
     for i in range(n):
         all_macros = all_macros + "#define __MACO_repeat_call_{}(call, i, x, ...)".format(i)
         if i > 0:
-            all_macros = all_macros + " call(i, x) __MACO_repeat_call_{}(call, i+1, __VA_ARGS__)".format(i - 1)
+            all_macros = all_macros + " call(i, x) __MACO_repeat_call_{}(call, __MACO_succ(i), __VA_ARGS__)".format(i - 1)
 
         all_macros = all_macros + "\n"
 
