@@ -1,0 +1,2 @@
+# maco
+c++ macro library
