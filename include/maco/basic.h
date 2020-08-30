@@ -7,7 +7,7 @@
 
 #define __MACO_empty()
 #define __MACO_concat(x, y) x ## y
-#define __MACO_paste(x, y) __CUB_concat(x, y)
+#define __MACO_paste(x, y) __MACO_concat(x, y)
 
 #define __MACO_stringify_(x) #x
 #define __MACO_stringify(x) __MACO_stringify_(x)

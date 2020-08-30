@@ -4,6 +4,7 @@
 
 #include <catch.hpp>
 #include <maco/repeat_call.h>
+#include <maco/aggregate.h>
 
 namespace {
    TEST_CASE("stringify") {
@@ -31,7 +32,9 @@ namespace {
 
 #define num_macro(n, x) , n + x
 
-constexpr int my_array[4] = {0 __MACO_repeat_call_3(num_macro, 0, 1,2,3) };
+#define __num(...) __MACO_foreach(num_macro, __VA_ARGS__)
+
+constexpr int my_array[4] = {0  __num(1,2,3)};
 
    TEST_CASE("repeat call + succ") {
       REQUIRE(my_array[1] == 1);

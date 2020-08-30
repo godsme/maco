@@ -12,7 +12,7 @@
 #define __MACO_var_name(x) __MACO_1st   x
 #define __MACO_var_type(x) __MACO_rest  x
 
-#define __MACO_all_fields__(macro, ...) \
+#define __MACO_foreach(macro, ...) \
 __MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (macro, 0, __VA_ARGS__)
 
 #endif //MACO_AGGREGATE_H
