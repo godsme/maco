@@ -2007,6 +2007,6 @@
 #define __MACO_end_macro_1_999(macro) macro(999)
 #define __MACO_end_macro_1_1000(macro) macro(1000)
 
-#define __MACO_repeat_1(n, macro, end_macro) __MACO_repeat_1_##n (macro) __MACO_end_macro_1_##n(end_macro)
-#define __MACO_simple_repeat_1(n, macro) __MACO_repeat_1(n, macro, macro)
+#define __MACO_repeat_from_1(n, macro, end_macro) __MACO_repeat_1_##n (macro) __MACO_end_macro_1_##n(end_macro)
+#define __MACO_simple_repeat_from_1(n, macro) __MACO_repeat_from_1(n, macro, macro)
 #endif

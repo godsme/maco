@@ -8,8 +8,8 @@ head = '''
 '''
 
 tail = '''
-#define __MACO_repeat(n, macro, end_macro) __MACO_repeat_##n (macro) __MACO_end_macro_##n(end_macro)
-#define __MACO_simple_repeat(n, macro) __MACO_repeat(n, macro, macro)
+#define __MACO_repeat_from_0(n, macro, end_macro) __MACO_repeat_0_##n (macro) __MACO_end_macro_0_##n(end_macro)
+#define __MACO_simple_repeat_from_0(n, macro) __MACO_repeat_from_0(n, macro, macro)
 
 #endif
 '''
@@ -17,9 +17,9 @@ tail = '''
 def gen_repeat_macro(n):
     macro = ""
     for i in range(n):
-        macro = macro + "#define __MACO_repeat_{}(macro)".format(i)
+        macro = macro + "#define __MACO_repeat_0_{}(macro)".format(i)
         if i > 0:
-            macro = macro + " __MACO_repeat_{}(macro)".format(i - 1)
+            macro = macro + " __MACO_repeat_0_{}(macro)".format(i - 1)
         if i > 1:
             macro = macro + " macro({})".format(i - 2)
         macro = macro + "\n"
@@ -29,7 +29,7 @@ def gen_repeat_macro(n):
 def gen_end_macro(n):
     macro = ""
     for i in range(n):
-        macro = macro + "#define __MACO_end_macro_{}(macro)".format(i)
+        macro = macro + "#define __MACO_end_macro_0_{}(macro)".format(i)
         if i > 0:
             macro = macro + " macro({})".format(i - 1)
         macro = macro + "\n"
