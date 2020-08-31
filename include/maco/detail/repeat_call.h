@@ -2,7 +2,7 @@
 #ifndef __MACO_MACRO_REPEAT_CALL_H_
 #define __MACO_MACRO_REPEAT_CALL_H_
 
-#include <maco/int_succ.h>
+#include <maco/detail/int_succ.h>
 
 #define __MACO_repeat_call_0(call, i, x, ...)
 #define __MACO_repeat_call_1(call, i, x, ...) call(i, x) __MACO_repeat_call_0(call, __MACO_succ(i), __VA_ARGS__)

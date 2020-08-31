@@ -31,8 +31,6 @@ end = '''
 final = '''
    size
    
-#define __MACO_overload(prefix, ...)  __MACO_paste(prefix, __MACO_pp_size(__VA_ARGS__))
-
 #endif 
 '''
 

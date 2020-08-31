@@ -3,7 +3,6 @@
 //
 
 #include <catch.hpp>
-#include <maco/repeat_call.h>
 #include <maco/foreach.h>
 #include <maco/repeats_0.h>
 #include <maco/repeats_1.h>
