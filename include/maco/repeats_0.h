@@ -20,8 +20,8 @@
 
 #define __MACO_simple_repeat_from_0(n, macro)  __MACO_eval(__MACO_simple_repeat_1_(__MACO_prev(n), macro))
 
-#define __MACO_repeat_from_0_(n, macro, end_macro) __MACO_simple_repeat_1_(__MACO_prev(n), macro) end_macro(n)
-#define __MACO_repeat_from_0(n, macro, end_macro) __MACO_eval(__MACO_repeat_from_0_(__MACO_prev(n), macro, end_macro))
+#define __MACO_repeat_from_0_(n, macro, end_macro) __MACO_simple_repeat_from_0(n, macro) end_macro(n)
+#define __MACO_repeat_from_0(n, macro, end_macro) __MACO_repeat_from_0_(__MACO_prev(n), macro, end_macro)
 
 #endif
 

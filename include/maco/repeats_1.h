@@ -20,7 +20,6 @@
 #define __MACO_simple_repeat_from_1(n, macro)  __MACO_eval(__MACO_simple_repeat_1_1_(n, macro))
 
 #define __MACO_repeat_from_1(n, macro, end_macro) __MACO_simple_repeat_from_1(__MACO_prev(n), macro) end_macro(n)
-
 #endif
 
 #endif //MACO_REPEATS_1_H
