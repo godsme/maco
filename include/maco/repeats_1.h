@@ -5,6 +5,10 @@
 #ifndef MACO_REPEATS_1_H
 #define MACO_REPEATS_1_H
 
+#if !defined(USING_EXPAND_REPEATS)
+#define USING_EXPAND_REPEATS 1
+#endif
+
 #if USING_EXPAND_REPEATS
 #include <maco/detail/repeats_1.h>
 #define __MACO_repeat_from_1(n, macro, end_macro) __MACO_repeat_1_##n (macro) __MACO_end_macro_1_##n(end_macro)
