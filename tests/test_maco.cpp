@@ -6,6 +6,9 @@
 #include <maco/foreach.h>
 #include <maco/repeats_0.h>
 #include <maco/repeats_1.h>
+#include <maco/condtion.h>
+#include <maco/loop.h>
+#include <maco/detail/int_prev.h>
 
 namespace {
    TEST_CASE("stringify") {
@@ -78,4 +81,15 @@ constexpr int array1[] = { __MACO_repeat_from_1(3, num_plus, num_last) };
       REQUIRE(array11[2] == 13);
    }
 
+
+
+
+
+#define eval(...) __VA_ARGS__
+
+#define m(n) i_ ## n,
+#define m_end(n) i_ ## n
+
+//#define repeat(f, n) repeat(f, prev(n)) , f(n)
+   __MACO_repeat_from_0(3, m, m_end)
 }
