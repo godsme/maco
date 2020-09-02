@@ -7,7 +7,7 @@
 
 #include <maco/config.h>
 
-#if USING_EXPAND_REPEATS
+#if USING_FAST_EXPANSION
 #include <maco/detail/repeats_1.h>
 #define __MACO_repeat_from_1(n, macro, end_macro) __MACO_repeat_1_##n (macro) __MACO_end_macro_1_##n(end_macro)
 #define __MACO_simple_repeat_from_1(n, macro)     __MACO_repeat_from_1(n, macro, macro)

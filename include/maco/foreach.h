@@ -10,7 +10,7 @@
 #include <maco/detail/int_succ.h>
 #include <maco/loop.h>
 
-#if USING_EXPAND_REPEATS
+#if USING_FAST_EXPANSION
 #include <maco/detail/repeat_call.h>
 #define __MACO_foreach(macro, ...) \
 __MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (macro, 0, __VA_ARGS__)
