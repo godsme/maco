@@ -6,6 +6,8 @@
 #define MACO_BASIC_H
 
 #define __MACO_empty()
+#define __MACO_defer(macro) macro   __MACO_empty()
+
 #define __MACO_concat(x, y) x ## y
 #define __MACO_paste(x, y) __MACO_concat(x, y)
 
