@@ -19,6 +19,9 @@
 #define __MACO_1st__(a, ...) a
 #define __MACO_1st(...) __MACO_1st__(__VA_ARGS__)
 
+#define __MACO_2nd__(a, b, ...) b
+#define __MACO_2nd(...) __MACO_2nd__(__VA_ARGS__)
+
 #define __MACO_rest__(a, ...) __VA_ARGS__
 #define __MACO_rest(...) __MACO_rest__(__VA_ARGS__)
 
