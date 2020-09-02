@@ -5,9 +5,7 @@
 #ifndef MACO_REPEATS_0_H
 #define MACO_REPEATS_0_H
 
-#if !defined(USING_EXPAND_REPEATS)
-#define USING_EXPAND_REPEATS 1
-#endif
+#include <maco/config.h>
 
 #if USING_EXPAND_REPEATS
 #include <maco/detail/repeats_0.h>
