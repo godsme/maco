@@ -85,5 +85,5 @@ constexpr int array1[] = { __MACO_repeat_from_1(3, num_plus, num_last) };
 #define m_end(n) 1 + n
 
 //#define repeat(f, n) repeat(f, prev(n)) , f(n)
-  constexpr int array3[] = { __MACO_simple_repeat_from_0(3, m) };
+  constexpr int array3[] = { __MACO_repeat_from_1(3, m, m_end) };
 }

@@ -11,7 +11,6 @@
 #define __MACO_simple_repeat_from_0(n, macro) __MACO_repeat_from_0(n, macro, macro)
 #else
 #include <maco/loop.h>
-#define __eval(...) __VA_ARGS__
 #define __MACO_simple_repeat_2_(n, macro) __MACO_when(n)(__MACO_simple_repeat_1_, (__MACO_prev(n), macro)) macro(n)
 #define __MACO_simple_repeat_1_(n, macro)  __MACO_when(n)(__MACO_simple_repeat_2_,  (__MACO_prev(n), macro)) macro(n)
 
