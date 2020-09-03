@@ -39,11 +39,13 @@ namespace {
 #define __num(...) __MACO_foreach(num_macro, __VA_ARGS__)
 
 constexpr int my_array[4] = {0  __num(1,2,3)};
+constexpr int array4[] = { __num() };
 
    TEST_CASE("repeat call + succ") {
       REQUIRE(my_array[1] == 1);
       REQUIRE(my_array[2] == 3);
       REQUIRE(my_array[3] == 5);
+      REQUIRE(sizeof(array4) == 0);
    }
 
 #define num_plus(n) 10 + n ,
@@ -85,5 +87,6 @@ constexpr int array1[] = { __MACO_repeat_from_1(3, num_plus, num_last) };
 #define m_end(n) 1 + n
 
 //#define repeat(f, n) repeat(f, prev(n)) , f(n)
-  constexpr int array3[] = { __MACO_repeat_from_1(3, m, m_end) };
+   constexpr int array3[] = { __MACO_repeat_from_1(3, m, m_end) };
+
 }

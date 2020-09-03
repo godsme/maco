@@ -1005,5 +1005,4 @@
 #define __MACO_eval_1000(...)   __MACO_eval_999(__VA_ARGS__)
 #define __MACO_eval_1001(...)   __MACO_eval_1000(__VA_ARGS__)
 
-
 #endif
