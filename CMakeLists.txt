@@ -15,4 +15,4 @@ add_executable(maco
         include/maco/basic.h
         include/maco/detail/pp_size.h
         include/maco/detail/repeat_call.h
-        tests/test_maco.cpp include/maco/aggregate.h include/maco/foreach.h include/maco/foreach_2.h include/maco/repeats_0.h include/maco/repeats_1.h include/maco/pp_size.h include/maco/condtion.h include/maco/loop.h include/maco/detail/loop.h include/maco/config.h)
+        tests/test_maco.cpp include/maco/aggregate.h include/maco/foreach.h include/maco/foreach_2.h include/maco/repeats_0.h include/maco/repeats_1.h include/maco/pp_size.h include/maco/condition.h include/maco/loop.h include/maco/detail/loop.h include/maco/config.h)

@@ -6,7 +6,7 @@
 #include <maco/foreach.h>
 #include <maco/repeats_0.h>
 #include <maco/repeats_1.h>
-#include <maco/condtion.h>
+#include <maco/condition.h>
 #include <maco/loop.h>
 #include <maco/detail/int_prev.h>
 

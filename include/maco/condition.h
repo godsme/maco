@@ -2,8 +2,8 @@
 // Created by Darwin Yuan on 2020/9/2.
 //
 
-#ifndef MACO_CONDTION_H
-#define MACO_CONDTION_H
+#ifndef MACO_CONDITION_H
+#define MACO_CONDITION_H
 
 #include <maco/basic.h>
 
@@ -28,4 +28,4 @@
 #define __MACO_if_0(true_branch, false_branch) false_branch
 #define __MACO_if_1(true_branch, false_branch) true_branch
 
-#endif //MACO_CONDTION_H
+#endif //MACO_CONDITION_H

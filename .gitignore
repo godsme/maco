@@ -8,6 +8,7 @@
 *.obj
 .idea/
 cmake-build-debug/
+venv/
 
 # Precompiled Headers
 *.gch
