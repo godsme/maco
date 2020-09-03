@@ -4,8 +4,8 @@
 
 #include <catch.hpp>
 #include <maco/map.h>
-#include <maco/repeats_0.h>
-#include <maco/repeats_1.h>
+#include <maco/iterator_0.h>
+#include <maco/iterator_1.h>
 #include <maco/condition.h>
 #include <maco/loop.h>
 #include <maco/detail/int_prev.h>
@@ -53,7 +53,7 @@ constexpr int array4[] = { __num() };
 #define num_plus(n) 10 + n ,
 #define num_last(n) 10 + n
 
-   constexpr int array0[] = { __MACO_repeat_from_0(3, num_plus, num_last) };
+   constexpr int array0[] = { __MACO_iterator_from_0(3, num_plus, num_last) };
 
    TEST_CASE("repeat from 0") {
       REQUIRE(array0[0] == 10);
@@ -61,7 +61,7 @@ constexpr int array4[] = { __num() };
       REQUIRE(array0[2] == 12);
    }
 
-   constexpr int array00[] = { __MACO_simple_repeat_from_0(3, num_plus) 0 };
+   constexpr int array00[] = { __MACO_simple_iterator_from_0(3, num_plus) 0 };
 
    TEST_CASE("simple repeat from 0") {
       REQUIRE(array00[0] == 10);
@@ -69,7 +69,7 @@ constexpr int array4[] = { __num() };
       REQUIRE(array00[2] == 12);
    }
 
-   constexpr int array1[] = { __MACO_repeat_from_1(3, num_plus, num_last) };
+   constexpr int array1[] = { __MACO_iterator_from_1(3, num_plus, num_last) };
 
    TEST_CASE("repeat from 1") {
       REQUIRE(array1[0] == 11);
@@ -77,7 +77,7 @@ constexpr int array4[] = { __num() };
       REQUIRE(array1[2] == 13);
    }
 
-   constexpr int array11[] = { __MACO_simple_repeat_from_1(3, num_plus) 0 };
+   constexpr int array11[] = { __MACO_simple_iterator_from_1(3, num_plus) 0 };
 
    TEST_CASE("simple repeat from 1") {
       REQUIRE(array11[0] == 11);
@@ -89,7 +89,7 @@ constexpr int array4[] = { __num() };
 #define m_end(n) 1 + n
 
 //#define repeat(f, n) repeat(f, prev(n)) , f(n)
-   constexpr int array3[] = { __MACO_repeat_from_1(3, m, m_end) };
+   constexpr int array3[] = { __MACO_iterator_from_1(3, m, m_end) };
 
 
    TEST_CASE("compare") {
