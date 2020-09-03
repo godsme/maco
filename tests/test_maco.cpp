@@ -115,14 +115,14 @@ constexpr int array4[] = { __num() };
       REQUIRE(__MACO_gte(11, 10));
       REQUIRE(!__MACO_gte(9, 10));
 
-      REQUIRE(__MACO_eq(__MACO_pp_size(1,2,3),3));
-      REQUIRE(!__MACO_eq(__MACO_pp_size(1,2,3),2));
+      REQUIRE(__MACO_eq(__MACO_num_of_args(1, 2, 3), 3));
+      REQUIRE(!__MACO_eq(__MACO_num_of_args(1, 2, 3), 2));
 
-      REQUIRE(__MACO_ne(__MACO_pp_size(1,2,3),2));
-      REQUIRE(!__MACO_ne(__MACO_pp_size(1,2,3),3));
+      REQUIRE(__MACO_ne(__MACO_num_of_args(1, 2, 3), 2));
+      REQUIRE(!__MACO_ne(__MACO_num_of_args(1, 2, 3), 3));
 
-      REQUIRE(__MACO_eq(__MACO_if(__MACO_ne(__MACO_pp_size(a,b,c),3))(3,4), 4));
-      REQUIRE(__MACO_eq(__MACO_if(__MACO_eq(__MACO_pp_size(a,b,c),3))(3,4), 3));
+      REQUIRE(__MACO_eq(__MACO_if(__MACO_ne(__MACO_num_of_args(a, b, c), 3))(3, 4), 4));
+      REQUIRE(__MACO_eq(__MACO_if(__MACO_eq(__MACO_num_of_args(a, b, c), 3))(3, 4), 3));
    }
 
 }
