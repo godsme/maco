@@ -37,7 +37,7 @@ namespace {
 
 #define num_macro(n, x) , n + x
 
-#define __num(...) __MACO_foreach(num_macro, __VA_ARGS__)
+#define __num(...) __MACO_map(num_macro, __VA_ARGS__)
 
 constexpr int my_array[4] = {0  __num(1,2,3)};
 constexpr int array4[] = { __num() };
