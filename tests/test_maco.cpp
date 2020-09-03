@@ -109,6 +109,12 @@ constexpr int array4[] = { __num() };
       REQUIRE(__MACO_gte(10, 10));
       REQUIRE(__MACO_gte(11, 10));
       REQUIRE(!__MACO_gt(9, 10));
+
+      REQUIRE(__MACO_eq(__MACO_pp_size(1,2,3),3));
+      REQUIRE(!__MACO_eq(__MACO_pp_size(1,2,3),2));
+
+      REQUIRE(__MACO_ne(__MACO_pp_size(1,2,3),2));
+      REQUIRE(!__MACO_ne(__MACO_pp_size(1,2,3),3));
    }
 
 }
