@@ -3,7 +3,7 @@
 //
 
 #include <catch.hpp>
-#include <maco/foreach.h>
+#include <maco/map.h>
 #include <maco/repeats_0.h>
 #include <maco/repeats_1.h>
 #include <maco/condition.h>
@@ -120,7 +120,7 @@ constexpr int array4[] = { __num() };
 
       REQUIRE(__MACO_ne(__MACO_pp_size(1,2,3),2));
       REQUIRE(!__MACO_ne(__MACO_pp_size(1,2,3),3));
-      
+
       REQUIRE(__MACO_eq(__MACO_if(__MACO_ne(__MACO_pp_size(a,b,c),3))(3,4), 4));
       REQUIRE(__MACO_eq(__MACO_if(__MACO_eq(__MACO_pp_size(a,b,c),3))(3,4), 3));
    }
