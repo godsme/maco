@@ -13,8 +13,9 @@
 #define __MACO_simple_repeat_from_0(n, macro) __MACO_repeat_from_0(n, macro, macro)
 #else
 #include <maco/loop.h>
-#define __MACO_simple_repeat_2_(n, macro) __MACO_while(n)(__MACO_simple_repeat_1_, (__MACO_prev(n), macro)) macro(n)
-#define __MACO_simple_repeat_1_(n, macro) __MACO_while(n)(__MACO_simple_repeat_2_,  (__MACO_prev(n), macro)) macro(n)
+#define __MACO_simple_repeat_2_core_(next, n, macro) __MACO_while(n)(next, (__MACO_prev(n), macro)) macro(n)
+#define __MACO_simple_repeat_2_(n, macro) __MACO_simple_repeat_2_core_(__MACO_simple_repeat_1_, n, macro)
+#define __MACO_simple_repeat_1_(n, macro) __MACO_simple_repeat_2_core_(__MACO_simple_repeat_2_, n, macro)
 
 #define __MACO_simple_repeat_from_0(n, macro)  __MACO_loop(n, __MACO_simple_repeat_1_(__MACO_prev(n), macro))
 
