@@ -67,7 +67,7 @@ constexpr int array4[] = { __num() };
       REQUIRE(array00[2] == 12);
    }
 
-constexpr int array1[] = { __MACO_repeat_from_1(3, num_plus, num_last) };
+   constexpr int array1[] = { __MACO_repeat_from_1(3, num_plus, num_last) };
 
    TEST_CASE("repeat from 1") {
       REQUIRE(array1[0] == 11);
