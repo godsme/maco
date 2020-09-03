@@ -6,10 +6,13 @@ head = '''
 
 #include <maco/basic.h>
 
+#define __MACO_prev_neg neg
+#define __MACO_prev_0   neg
 '''
 
 end = '''
 #define __MACO_prev(n)  __MACO_concat(__MACO_prev_, n)
+#define __MACO_dec(n)   __MACO_prev(n)
 
 #endif
 '''

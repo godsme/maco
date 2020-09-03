@@ -10,6 +10,7 @@ head = '''
 
 end = '''
 #define __MACO_succ(n)  __MACO_concat(__MACO_succ_, n)
+#define __MACO_inc(n)   __MACO_succ(n)
 
 #endif
 '''

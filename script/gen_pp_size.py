@@ -24,7 +24,6 @@ end = '''
 
 #endif
 
-#define __MACO_pp_size(...) __MACO_pp_size_(__dummy__, ##__VA_ARGS__)
 #define __MACO_pp_size_i( \\
 '''
 
