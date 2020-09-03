@@ -9,6 +9,7 @@
 #include <maco/condition.h>
 #include <maco/loop.h>
 #include <maco/detail/int_prev.h>
+#include <maco/natural_num.h>
 
 namespace {
    TEST_CASE("stringify") {
@@ -88,5 +89,7 @@ constexpr int array4[] = { __num() };
 
 //#define repeat(f, n) repeat(f, prev(n)) , f(n)
    constexpr int array3[] = { __MACO_repeat_from_1(3, m, m_end) };
+
+
 
 }

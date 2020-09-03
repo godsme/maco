@@ -4,6 +4,8 @@
 
 #include <maco/basic.h>
 
+#define __MACO_prev_neg neg
+#define __MACO_prev_0   neg
 #define __MACO_prev_1   0
 #define __MACO_prev_2   1
 #define __MACO_prev_3   2
@@ -1006,5 +1008,6 @@
 #define __MACO_prev_1000   999
 
 #define __MACO_prev(n)  __MACO_concat(__MACO_prev_, n)
+#define __MACO_dec(n) __MACO_prev(n)
 
 #endif
