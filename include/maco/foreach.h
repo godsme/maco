@@ -9,7 +9,7 @@
 #include <maco/pp_size.h>
 #include <maco/detail/int_succ.h>
 #include <maco/loop.h>
-#include <maco/natural_num.h>
+#include <maco/natural.h>
 
 #if USING_FAST_EXPANSION
 #include <maco/detail/repeat_call.h>

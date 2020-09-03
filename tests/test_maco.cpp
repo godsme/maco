@@ -9,7 +9,8 @@
 #include <maco/condition.h>
 #include <maco/loop.h>
 #include <maco/detail/int_prev.h>
-#include <maco/natural_num.h>
+#include <maco/natural.h>
+#include <maco/compare.h>
 
 namespace {
    TEST_CASE("stringify") {
@@ -91,5 +92,23 @@ constexpr int array4[] = { __num() };
    constexpr int array3[] = { __MACO_repeat_from_1(3, m, m_end) };
 
 
+   TEST_CASE("compare") {
+      REQUIRE(__MACO_eq(10, 10));
+      REQUIRE(!__MACO_eq(9, 10));
+      REQUIRE(!__MACO_ne(10, 10));
+      REQUIRE(__MACO_ne(1, 10));
+      REQUIRE(__MACO_lt(9, 10));
+      REQUIRE(!__MACO_lt(10, 10));
+      REQUIRE(!__MACO_lt(11, 10));
+      REQUIRE(__MACO_lte(10, 10));
+      REQUIRE(__MACO_lte(9, 10));
+      REQUIRE(!__MACO_lte(11, 10));
+      REQUIRE(!__MACO_gt(9, 10));
+      REQUIRE(!__MACO_gt(10, 10));
+      REQUIRE(__MACO_gt(11, 10));
+      REQUIRE(__MACO_gte(10, 10));
+      REQUIRE(__MACO_gte(11, 10));
+      REQUIRE(!__MACO_gt(9, 10));
+   }
 
 }
