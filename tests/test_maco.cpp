@@ -44,8 +44,6 @@ namespace {
 constexpr int my_array[4] = {0  __num(1,2,3)};
 constexpr int array4[] = { __num() };
 
-
-
    TEST_CASE("repeat call + succ") {
       REQUIRE(my_array[1] == 1);
       REQUIRE(my_array[2] == 3);
@@ -59,8 +57,8 @@ constexpr int array_index_2[] = { __MACO_make_index_seq(2) };
 
    TEST_CASE("index sequence") {
       REQUIRE(sizeof(array_index_0) == 0);
-      REQUIRE(sizeof(array_index_1) == 1);
-      REQUIRE(sizeof(array_index_2) == 2);
+      REQUIRE(sizeof(array_index_1)/sizeof(int) == 1);
+      REQUIRE(sizeof(array_index_2)/sizeof(int) == 2);
       REQUIRE(array_index_1[0] == 0);
       REQUIRE(array_index_2[0] == 0);
       REQUIRE(array_index_2[1] == 1);
