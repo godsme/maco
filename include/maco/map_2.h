@@ -19,6 +19,12 @@ __MACO_overload(__MACO_repeat_call_2_, __VA_ARGS__) (f, __MACO_2nd, __MACO_empty
 #define __MACO_map_2i(f, ...) \
 __MACO_overload(__MACO_repeat_call_2_, __VA_ARGS__) (f, __MACO_2, __MACO_empty(), 0, __VA_ARGS__)
 
+#define __MACO_map_x_2(f, x, ...) \
+__MACO_overload(__MACO_repeat_call_2_, __VA_ARGS__) (f, __MACO_rest, x, 0, __VA_ARGS__)
+
+#define __MACO_map_x_2i(f, x, ...) \
+__MACO_overload(__MACO_repeat_call_2_, __VA_ARGS__) (f, __MACO_keep__, x, 0, __VA_ARGS__)
+
 #else
 
 #include <maco/arguments.h>
