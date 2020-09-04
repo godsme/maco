@@ -57,19 +57,27 @@ MACO
 
 .. code-block:: c++
 
-   #define __MACO_simple_iterator_0_core(next, n, f) __MACO_while(n)(next, (__MACO_prev(n), f)) f(n)
-   #define __MACO_simple_iterator_2_(n, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_1_, n, f)
-   #define __MACO_simple_iterator_1_(n, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_2_, n, f)
-   #define __MACO_simple_iterator_from_0(n, f)  __MACO_loop(n, __MACO_simple_iterator_1_(__MACO_prev(n), f))
+   __MACO_while(n)(next, (__MACO_prev(n), f))   f(n)
 
-其中 ``__MACO_loop(n, ...)`` 和 ``__MACO_while(cond)`` 在这个迭代实现中，起到关键的作用。
+你可以清晰的看到其中的逻辑：尾部的 ``f(n)`` 是对用户指定的宏 ``f`` 以 ``n`` 为参数展开。
+而 ``__MACO_while(n)`` 会根据 ``n > 0`` 是否成立，决定继续递归调用 ``next(n-1, f)`` ，或终止递归。
 
-而中间的 ``__MACO_simple_iterator_1_`` 和 ``__MACO_simple_iterator_2_`` 则是为了绕开 ``C/C++`` 禁止宏的自我引用
-而不得不引入的重复定义。
+3. map
 
+通过递归机制，我们就可以实现 ``map`` ，其原型为 ``__MACO_map(f, ...)`` ，通过它就可以对列表中每一个元素
+通过用户指定的宏 ``f`` 进行展开。比如：
 
+.. code-block:: c++
 
-- ``__MACO_num_of_args``
+   #define __f(n, x) , n + x
+
+   auto array[] = { 0 __MACO_map(__f, 1, 2, 3) };
+
+   ASSERT(array[1] == 1);
+   ASSERT(array[2] == 3);
+   ASSERT(array[3] == 5);
+
+4. ``__MACO_num_of_args``
 
 求一个宏展开参数的个数。比如：
 
