@@ -10,6 +10,7 @@
 cmake-build-debug/
 venv/
 doc/build
+doc/source/_ext/__pycache__/
 
 # Precompiled Headers
 *.gch
