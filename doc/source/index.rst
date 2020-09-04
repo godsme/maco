@@ -77,6 +77,8 @@ MACO
    ASSERT(array[2] == 3);
    ASSERT(array[3] == 5);
 
+ ``__MACO_map`` 是一个强大的，应用非常广泛的宏。其中最著名的应用：是生成结构体的反射信息。
+
 4. ``__MACO_num_of_args``
 
 求一个宏展开参数的个数。比如：

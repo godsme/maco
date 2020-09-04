@@ -30,6 +30,9 @@
 #define __MACO_merge_2_(x, y) x y
 #define __MACO_swap_(x, y)    y x
 
+#define __MACO_invoke(f, ...)       f(__VA_ARGS__)
+#define __MACO_compose(f, g, ...) __MACO_invoke(f, g(__VA_ARGS__))
+
 #define __MACO_template_type(...) std::decay_t<decltype(std::declval<__VA_ARGS__>())>
 
 #endif //MACO_BASIC_H

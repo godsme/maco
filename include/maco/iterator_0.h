@@ -17,8 +17,9 @@
 #define __MACO_simple_iterator_2_(n, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_1_, n, f)
 #define __MACO_simple_iterator_1_(n, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_2_, n, f)
 #define __MACO_simple_iterator_from_0(n, f)  __MACO_loop(n, __MACO_simple_iterator_1_(__MACO_prev(n), f))
+
 #define __MACO_iterator_from_0_(n, f, end_f) __MACO_simple_iterator_from_0(n, f) end_f(n)
-#define __MACO_iterator_from_0(n, f, end_f) __MACO_iterator_from_0_(__MACO_prev(n), f, end_f)
+#define __MACO_iterator_from_0(n, f, end_f) __MACO_if(n)(__MACO_iterator_from_0_(__MACO_prev(n), f, end_f),)
 
 #endif
 
