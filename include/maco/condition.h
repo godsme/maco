@@ -42,7 +42,7 @@
 
 #define __MACO_gt_0(n)     __MACO_check_gt_0__(__MACO_concat(__MACO_gt_0_, n))
 #define __MACO_gt_0_neg    __MACO_placeholder, 0
-#define __MACO_gt_0_0      __MACO_gt_0_neg
+#define __MACO_gt_0_0      __MACO_placeholder, 0
 
 #define __MACO_gte_0(n)    __MACO_check_gt_0__(__MACO_concat(__MACO_gte_0_, n))
 #define __MACO_gte_0_neg   __MACO_placeholder, 0
