@@ -5,22 +5,11 @@ from pygments.lexers import get_lexer_by_name  # refer LEXERS
 from pygments.lexers._mapping import LEXERS
 
 class CppTransDslLexer(CppLexer):
-    EXTRA_KEYWORDS = set(('__sync', '__asyn', '__sequential', '__concurrent', '__time_guard',
-                          '__transaction', '__fork', '__join', '__optional', '__switch', '__case',
-                          '__otherwise', '__wait', '__peek', '__with_id', '__void', '__safe',
-                          '__procedure', '__throw', '__is_status', '__loop',
-                          '__break_if', '__redo_if', '__while', '__until', '__loop_max',
-                          '__forever', '__multi_thread', '__on_fail', '__on_succ', '__on_status',
-                          '__req', '__rsp',
-                          '__params', '__def', '__as', '__thread_id', '__timer_id', '__recover',
-                          '__as_trans', '__apply', '__with', '__is_failed', '__is_succ', '__not',
-                          '__bind_listener', '__listeners'))
-    FUNC_KEYWORDS  = set(('exec', 'handleEvent', 'kill', 'WAIT_ON', 'onActionStarting', 'onActionEventConsumed'
-                          'onActionDone', 'onActionStopped', 'onActionKilled'))
+    EXTRA_KEYWORDS = set(('__sync'))
+    FUNC_KEYWORDS  = set(('exec'))
     TYPE_KEYWORDS  = set(('__MACO_simple_iterator_from_0', '__MACO_if', '__MACO_eq', '__MACO_loop', '__MACO_while'
                           '__MACO_prev', '__MACO_next', '__MACO_inc', '__MACO_dec'))
-    CONST_KEYWORDS = set(('ASSERT', 'CONTINUE', 'UNKNOWN_EVENT', 'FAILED',
-                          'DEF_SIMPLE_ASYNC_ACTION'))
+    CONST_KEYWORDS = set(('ASSERT'))
 
     def get_tokens_unprocessed(self, text):
         for index, token, value in CppLexer.get_tokens_unprocessed(self, text):
