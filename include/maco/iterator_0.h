@@ -13,13 +13,18 @@
 #define __MACO_simple_repeat_from_0(n, macro) __MACO_repeat_from_0(n, macro, macro)
 #else
 #include <maco/loop.h>
-#define __MACO_simple_iterator_0_core(next, n, f) __MACO_while(n)(next, (__MACO_prev(n), f)) f(n)
-#define __MACO_simple_iterator_2_(n, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_1_, n, f)
-#define __MACO_simple_iterator_1_(n, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_2_, n, f)
-#define __MACO_simple_iterator_from_0(n, f)  __MACO_loop(n, __MACO_simple_iterator_1_(__MACO_prev(n), f))
+#define __MACO_simple_iterator_0_core(next, n, ud, g, f) __MACO_while(n)(next, (__MACO_prev(n), ud, g, f)) __MACO_compose(f, g, n, ud)
+#define __MACO_simple_iterator_2_(n, ud, g, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_1_, n, ud, g, f)
+#define __MACO_simple_iterator_1_(n, ud, g, f) __MACO_simple_iterator_0_core(__MACO_simple_iterator_2_, n, ud, g, f)
+#define __MACO_simple_iterator_from_0(n, ud, g, f)  __MACO_loop(n, __MACO_simple_iterator_1_(__MACO_prev(n), ud, g, f))
 
-#define __MACO_iterator_from_0_(n, f, end_f) __MACO_simple_iterator_from_0(n, f) end_f(n)
-#define __MACO_iterator_from_0(n, f, end_f) __MACO_if(n)(__MACO_iterator_from_0_(__MACO_prev(n), f, end_f),)
+#define __MACO_simple_repeat_from_0(n, f) __MACO_simple_iterator_from_0(n, __MACO_empty(), __MACO_1st, f)
+
+#define __MACO_iterator_from_0_(n, ud, g, f, end_f) __MACO_simple_iterator_from_0(n, ud, g, f) __MACO_compose(end_f, g, n, ud)
+#define __MACO_iterator_from_0(n, ud, g, f, end_f) __MACO_if(n)(__MACO_iterator_from_0_(__MACO_prev(n), ud, g, f, end_f),__MACO_empty())
+
+#define __MACO_repeat_ud_from_0(n, ud, f, end_f) __MACO_iterator_from_0(n, ud, __MACO_1st, f, end_f)
+#define __MACO_repeat_from_0(n, f, end_f) __MACO_iterator_from_0(n, __MACO_empty(), __MACO_1st, f, end_f)
 
 #endif
 

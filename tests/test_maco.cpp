@@ -67,7 +67,7 @@ constexpr int array_index_2[] = { __MACO_make_index_seq(2) };
 #define num_plus(n) 10 + n ,
 #define num_last(n) 10 + n
 
-   constexpr int array0[] = { __MACO_iterator_from_0(3, num_plus, num_last) };
+   constexpr int array0[] = { __MACO_repeat_from_0(3, num_plus, num_last) };
 
    TEST_CASE("repeat from 0") {
       REQUIRE(array0[0] == 10);
@@ -75,7 +75,7 @@ constexpr int array_index_2[] = { __MACO_make_index_seq(2) };
       REQUIRE(array0[2] == 12);
    }
 
-   constexpr int array00[] = { __MACO_simple_iterator_from_0(3, num_plus) 0 };
+   constexpr int array00[] = { __MACO_simple_repeat_from_0(3, num_plus) 0 };
 
    TEST_CASE("simple repeat from 0") {
       REQUIRE(array00[0] == 10);
