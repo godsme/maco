@@ -9,6 +9,7 @@
 .idea/
 cmake-build-debug/
 venv/
+doc/build
 
 # Precompiled Headers
 *.gch
