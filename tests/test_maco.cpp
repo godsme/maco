@@ -141,4 +141,16 @@ constexpr int array_index_2[] = { __MACO_make_index_seq(2) };
       REQUIRE(__MACO_eq(__MACO_if(__MACO_eq(__MACO_num_of_args(a, b, c), 3))(3, 4), 3));
    }
 
+
+   int a_0 = 10;
+   int a_1 = 11;
+   int a_2 = 12;
+
+   int array_seq[] = { __MACO_make_token_seq(a_, 3) };
+
+   TEST_CASE("make token seq") {
+      REQUIRE(array_seq[0] == a_0);
+      REQUIRE(array_seq[1] == a_1);
+      REQUIRE(array_seq[2] == a_2);
+   }
 }
