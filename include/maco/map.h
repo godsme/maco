@@ -16,7 +16,7 @@ __MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (f, 0, __VA_ARGS__)
 
 #else
 
-#include <maco/parameter.h>
+#include <maco/arguments.h>
 #include <maco/detail/int_succ.h>
 #include <maco/detail/int_prev.h>
 #include <maco/loop.h>

@@ -17,8 +17,9 @@ class CppTransDslLexer(CppLexer):
                           '__bind_listener', '__listeners'))
     FUNC_KEYWORDS  = set(('exec', 'handleEvent', 'kill', 'WAIT_ON', 'onActionStarting', 'onActionEventConsumed'
                           'onActionDone', 'onActionStopped', 'onActionKilled'))
-    TYPE_KEYWORDS  = set(('ActionThreadId', 'TimerId', 'ActionId', 'Status', 'TransactionInfo', 'Event', 'ObservedActionIdRegistry'))
-    CONST_KEYWORDS = set(('SUCCESS', 'CONTINUE', 'UNKNOWN_EVENT', 'FAILED', 
+    TYPE_KEYWORDS  = set(('__MACO_simple_iterator_from_0', '__MACO_if', '__MACO_eq', '__MACO_loop', '__MACO_while'
+                          '__MACO_prev', '__MACO_next', '__MACO_inc', '__MACO_dec'))
+    CONST_KEYWORDS = set(('ASSERT', 'CONTINUE', 'UNKNOWN_EVENT', 'FAILED',
                           'DEF_SIMPLE_ASYNC_ACTION'))
 
     def get_tokens_unprocessed(self, text):
