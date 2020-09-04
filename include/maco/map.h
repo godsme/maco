@@ -33,6 +33,8 @@ __MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (f, __MACO_2, __MACO_empty(), 
 
 #define __MACO_map(f, ...)                                 __MACO_map_(f, __MACO_empty(), __MACO_2nd,    __VA_ARGS__)
 #define __MACO_map_i(f, ...)                               __MACO_map_(f, __MACO_empty(), __MACO_2, __VA_ARGS__)
+#define __MACO_map_x(f, x, ...)                            __MACO_map_(f, x, __MACO_rest, __VA_ARGS__)
+#define __MACO_map_x_i(f, x, ...)                          __MACO_map_(f, x, __MACO_keep__, __VA_ARGS__)
 
 #endif
 
