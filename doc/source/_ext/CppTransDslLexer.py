@@ -5,11 +5,13 @@ from pygments.lexers import get_lexer_by_name  # refer LEXERS
 from pygments.lexers._mapping import LEXERS
 
 class CppTransDslLexer(CppLexer):
-    EXTRA_KEYWORDS = set(('__sync'))
-    FUNC_KEYWORDS  = set(('exec'))
-    TYPE_KEYWORDS  = set(('__MACO_simple_iterator_from_0', '__MACO_if', '__MACO_eq', '__MACO_loop', '__MACO_while'
-                          '__MACO_prev', '__MACO_next', '__MACO_inc', '__MACO_dec'))
-    CONST_KEYWORDS = set(('ASSERT'))
+    EXTRA_KEYWORDS = set(('abcdefgs'))
+    TYPE_KEYWORDS  = set(('ASSERT', 'abcdefg'))
+    FUNC_KEYWORDS  = set(('__MACO_simple_iterator_from_0', '__MACO_if', '__MACO_eq',
+                          '__MACO_loop', '__MACO_while', '__MACO_prev', '__MACO_next',
+                          '__MACO_inc', '__MACO_dec', '__MACO_while', '__MACO_map',
+                          '__MACO_num_of_args'))
+    CONST_KEYWORDS = set(('whatsoever', 'abcdefg'))
 
     def get_tokens_unprocessed(self, text):
         for index, token, value in CppLexer.get_tokens_unprocessed(self, text):
