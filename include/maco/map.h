@@ -9,10 +9,14 @@
 
 #if USING_FAST_EXPANSION
 #include <maco/detail/repeat_call.h>
-#include <maco/parameter.h>
+#include <maco/arguments.h>
+#include <maco/basic.h>
 
 #define __MACO_map(f, ...) \
-__MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (f, 0, __VA_ARGS__)
+__MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (f, __MACO_2nd, __MACO_empty(), 0, __VA_ARGS__)
+
+#define __MACO_map_i(f, ...) \
+__MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (f, __MACO_2, __MACO_empty(), 0, __VA_ARGS__)
 
 #else
 
@@ -27,8 +31,8 @@ __MACO_overload(__MACO_repeat_call_, __VA_ARGS__) (f, 0, __VA_ARGS__)
 #define __MACO_map__(f, ud, g, n, ...)                   __MACO_loop(n, __MACO_map_1__(f, ud, g, 0, __MACO_dec(n), __VA_ARGS__))
 #define __MACO_map_(f, ud, g, ...)                       __MACO_map__(f, ud, g, __MACO_num_of_args(__VA_ARGS__), __VA_ARGS__)
 
-#define __MACO_map(f, ...)                           __MACO_map_(f, , __MACO_2nd,    __VA_ARGS__)
-#define __MACO_map_i(f, ...)                         __MACO_map_(f, , __MACO_2, __VA_ARGS__)
+#define __MACO_map(f, ...)                           __MACO_map_(f, __MACO_empty(), __MACO_2nd,    __VA_ARGS__)
+#define __MACO_map_i(f, ...)                         __MACO_map_(f, __MACO_empty(), __MACO_2, __VA_ARGS__)
 
 #endif
 

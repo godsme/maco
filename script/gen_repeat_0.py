@@ -4,6 +4,7 @@ head = '''
 #ifndef __MACO_REPEAT_0_H__
 #define __MACO_REPEAT_0_H__
 
+#include <maco/basic.h>
 
 '''
 
@@ -15,11 +16,11 @@ tail = '''
 def gen_repeat_macro(n):
     macro = ""
     for i in range(n):
-        macro = macro + "#define __MACO_repeat_0_{}(macro)".format(i)
+        macro = macro + "#define __MACO_repeat_0_{}(macro, g, ud)".format(i)
         if i > 0:
-            macro = macro + " __MACO_repeat_0_{}(macro)".format(i - 1)
+            macro = macro + " __MACO_repeat_0_{}(macro, g, ud)".format(i - 1)
         if i > 1:
-            macro = macro + " macro({})".format(i - 2)
+            macro = macro + " __MACO_compose(macro, g, ud, {})".format(i - 2)
         macro = macro + "\n"
 
     return macro
@@ -27,9 +28,9 @@ def gen_repeat_macro(n):
 def gen_end_macro(n):
     macro = ""
     for i in range(n):
-        macro = macro + "#define __MACO_end_macro_0_{}(macro)".format(i)
+        macro = macro + "#define __MACO_end_macro_0_{}(macro, g, ud)".format(i)
         if i > 0:
-            macro = macro + " macro({})".format(i - 1)
+            macro = macro + " __MACO_compose(macro, g, ud, {})".format(i - 1)
         macro = macro + "\n"
 
     return macro
