@@ -31,6 +31,13 @@
 
 
 ////////////////////////////////////////////////////////////////////////
+// if n > 0 choosing the 1st branch, otherwise the 2nd one.
+#define __MACO_if_(n) __MACO_paste(__MACO_if__, __MACO_bool(n))
+#define __MACO_if__0(true_branch, false_branch) false_branch
+#define __MACO_if__1(true_branch, false_branch) true_branch
+
+
+////////////////////////////////////////////////////////////////////////
 #define __MACO_check_gt_0__(...)  __MACO_2nd(__VA_ARGS__, 1)
 
 #define __MACO_gt_0(n)     __MACO_check_gt_0__(__MACO_concat(__MACO_gt_0_, n))
