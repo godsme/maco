@@ -5,8 +5,6 @@
 #ifndef MACO_CONFIG_H
 #define MACO_CONFIG_H
 
-#if !defined(USING_FAST_EXPANSION)
-#define USING_FAST_EXPANSION 1
-#endif
+#define USING_FAST_EXPANSION 0
 
 #endif //MACO_CONFIG_H
