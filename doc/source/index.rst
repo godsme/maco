@@ -31,6 +31,24 @@ MACO
 
    ASSERT(result == 20);
 
+natural comparison
+------------------------
+
+.. code-block:: c++
+
+   ASSERT(__MACO_eq(10, 10));
+   ASSERT(!__MACO_eq(9, 10));
+
+   ASSERT(__MACO_ne(9, 10));
+   ASSERT(!__MACO_ne(9, 9));
+
+   ASSERT(__MACO_gt(10, 9));
+   ASSERT(!__MACO_gt(9, 9));
+   ASSERT(!__MACO_gt(9, 10));
+
+   ASSERT(__MACO_gte(10, 9));
+   ASSERT(__MACO_gte(9, 9));
+   ASSERT(!__MACO_gte(9, 10));
 
 ``__MACO_simple_repeat_from_0``
 ---------------------------------------
@@ -65,6 +83,35 @@ MACO
 你可以清晰的看到其中的逻辑：尾部的 ``f(n)`` 是对用户指定的宏 ``f`` 以 ``n`` 为参数展开。
 而 ``__MACO_while(n)`` 会根据 ``n > 0`` 是否成立，决定继续递归调用 ``next(n-1, f)`` ，或终止递归。
 
+``__MACO_make_index_seq``
+---------------------------------
+
+.. code-block:: c++
+
+   int a[] = { __MACO_make_index_seq(4) };
+
+   ASSERT(sizeof(a)/sizeof(a[0]) == 4);
+   ASSERT(a[0] == 0);
+   ASSERT(a[1] == 1);
+   ASSERT(a[2] == 2);
+   ASSERT(a[3] == 3);
+
+``__MACO_make_token_seq``
+---------------------------------
+
+.. code-block:: c++
+
+   int a_0 = 10;
+   int a_1 = 11;
+   int a_2 = 12;
+
+   int a[] = { __MACO_make_token_seq(a_, 3) };
+
+   ASSERT(sizeof(a)/sizeof(a[0]) == 3);
+   ASSERT(a[0] == a_0);
+   ASSERT(a[1] == a_1);
+   ASSERT(a[2] == a_2);
+
 ``__MACO_map``
 -----------------
 
@@ -73,15 +120,28 @@ MACO
 
 .. code-block:: c++
 
+   #define __f(x) int x;
+
+   struct Foo { __MACO_map(__f, a, b, c) };
+   // struct Foo { int a; int b; int c; };
+
+
+``__MACO_map`` 是一个强大的，应用非常广泛的宏。其中最著名的应用：是生成结构体的反射信息。
+
+``__MACO_map_i``
+-----------------
+
+``__MACO_map_i(f, ...)`` 会给每个 ``f`` 传递其索引。比如：
+
+.. code-block:: c++
+
    #define __f(n, x) , n + x
 
-   auto array[] = { 0 __MACO_map(__f, 1, 2, 3) };
+   auto array[] = { 0 __MACO_map_i(__f, 1, 2, 3) };
 
    ASSERT(array[1] == 1);
    ASSERT(array[2] == 3);
    ASSERT(array[3] == 5);
-
-``__MACO_map`` 是一个强大的，应用非常广泛的宏。其中最著名的应用：是生成结构体的反射信息。
 
 ``__MACO_num_of_args``
 ----------------------------------
@@ -97,6 +157,8 @@ MACO
 
 这个宏对于处理变参问题极为有用。
 
+还有很多其它的宏，具体请参见：`moco github <https://github.com/godsme/maco>`。
 
+关于具体的宏展开原理，请参考 :ref:`宏展开<expand>` 。
 
 
