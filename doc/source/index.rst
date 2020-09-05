@@ -19,7 +19,8 @@ MACO
 
 我们来看看，通过 ``maco`` ，如何可以做到图灵完备的计算。
 
-``__MACO_if``
+
+`__MACO_if`
 -----------------
 
 .. code-block:: c++
@@ -50,7 +51,7 @@ natural comparison
    ASSERT(__MACO_gte(9, 9));
    ASSERT(!__MACO_gte(9, 10));
 
-``__MACO_simple_repeat_from_0``
+`__MACO_simple_repeat_from_0`
 ---------------------------------------
 
 .. code-block:: c++
@@ -83,7 +84,7 @@ natural comparison
 你可以清晰的看到其中的逻辑：尾部的 ``f(n)`` 是对用户指定的宏 ``f`` 以 ``n`` 为参数展开。
 而 ``__MACO_while(n)`` 会根据 ``n > 0`` 是否成立，决定继续递归调用 ``next(n-1, f)`` ，或终止递归。
 
-``__MACO_make_index_seq``
+`__MACO_make_index_seq`
 ---------------------------------
 
 .. code-block:: c++
@@ -96,7 +97,7 @@ natural comparison
    ASSERT(a[2] == 2);
    ASSERT(a[3] == 3);
 
-``__MACO_make_token_seq``
+`__MACO_make_token_seq`
 ---------------------------------
 
 .. code-block:: c++
@@ -112,7 +113,7 @@ natural comparison
    ASSERT(a[1] == a_1);
    ASSERT(a[2] == a_2);
 
-``__MACO_map``
+`__MACO_map`
 -----------------
 
 通过递归机制，我们就可以实现 ``map`` ，其原型为 ``__MACO_map(f, ...)`` ，通过它就可以对列表中每一个元素
@@ -128,7 +129,7 @@ natural comparison
 
 ``__MACO_map`` 是一个强大的，应用非常广泛的宏。其中最著名的应用：是生成结构体的反射信息。
 
-``__MACO_map_i``
+`__MACO_map_i`
 -----------------
 
 ``__MACO_map_i(f, ...)`` 会给每个 ``f`` 传递其索引。比如：
@@ -143,7 +144,7 @@ natural comparison
    ASSERT(array[2] == 3);
    ASSERT(array[3] == 5);
 
-``__MACO_num_of_args``
+`__MACO_num_of_args`
 ----------------------------------
 
 求一个宏展开参数的个数。比如：
@@ -156,6 +157,7 @@ natural comparison
    ASSERT(__MACO_num_of_args(a, b, c, d, e) == 5);
 
 这个宏对于处理变参问题极为有用。
+
 
 还有很多其它的宏，具体请参见：`moco github <https://github.com/godsme/maco>`_ 。
 
