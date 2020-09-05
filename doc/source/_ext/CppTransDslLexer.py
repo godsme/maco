@@ -7,10 +7,11 @@ from pygments.lexers._mapping import LEXERS
 class CppTransDslLexer(CppLexer):
     EXTRA_KEYWORDS = set(('abcdefgs'))
     TYPE_KEYWORDS  = set(('ASSERT', 'abcdefg'))
-    FUNC_KEYWORDS  = set(('__MACO_simple_iterator_from_0', '__MACO_if', '__MACO_eq',
+    FUNC_KEYWORDS  = set(('__MACO_simple_repeat_from_0', '__MACO_if', '__MACO_eq',
                           '__MACO_loop', '__MACO_while', '__MACO_prev', '__MACO_next',
                           '__MACO_inc', '__MACO_dec', '__MACO_while', '__MACO_map',
-                          '__MACO_num_of_args'))
+                          '__MACO_num_of_args', '__MACO_ne', '__MACO_gt', '__MACO_gte',
+                          '__MACO_make_index_seq', '__MACO_make_token_seq', '__MACO_map_i'))
     CONST_KEYWORDS = set(('whatsoever', 'abcdefg'))
 
     def get_tokens_unprocessed(self, text):

@@ -157,7 +157,7 @@ natural comparison
 
 这个宏对于处理变参问题极为有用。
 
-还有很多其它的宏，具体请参见：`moco github <https://github.com/godsme/maco>`。
+还有很多其它的宏，具体请参见：`moco github <https://github.com/godsme/maco>`_ 。
 
 关于具体的宏展开原理，请参考 :ref:`宏展开<expand>` 。
 
