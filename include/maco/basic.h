@@ -34,8 +34,12 @@
 #define __MACO_merge_2__(x, y)  x y
 #define __MACO_merge_2(x, y)    __MACO_merge_2__(x,y)
 
-#define __MACO_swap__(x, y)    y x
-#define __MACO_swap(x, y)      __MACO_swap__(x, y)
+#define __MACO_swap__(x, y)     y, x
+#define __MACO_swap(x, y)       __MACO_swap__(x, y)
+
+#define __MACO_merge_swap(x, y)   y x
+
+#define __MACO_defer_invoke(f, ...)   __MACO_defer(f) (__VA_ARGS__)
 
 #define __MACO_invoke(f, ...)         f(__VA_ARGS__)
 #define __MACO_compose(f, g, ...)     __MACO_invoke(f, g(__VA_ARGS__))
