@@ -5,13 +5,13 @@
 一个 ``类函数宏`` 的展开，分为两个阶段：
 
 
-阶段1：参数展开
+1. 阶段 `1` ：参数展开
 -------------------------------
 
 这个阶段，对宏的参数进行 **完全展开** 。``C99`` 对此阶段的定义如下：
 
-.. C99: 6.10.3.1 Argument substitution
-..
+   C99: 6.10.3.1 Argument substitution
+
    After the arguments for the invocation of a function-like
    macro have been identified, argument substitution takes place.
    A parameter in the replacement list, unless preceded by a # or ## preprocessing
@@ -35,15 +35,15 @@
 ``foo(foo(1))`` 将会首先被展开为 ``foo(1 + 10)`` ，进而被展开为 ``1 + 10 + 10`` 。其中，
 ``foo(1)`` 的展开有其独立的上下文，``foo(1 + 10)`` 则属于另一个展开上下文。
 
-阶段2：参数替换后再次展开
+2. 阶段 `2` ：参数替换后再次展开
 -------------------------------
 
 所有  **完全展开** 后的参数，在宏定义里进行替换之后，结合宏定义之后的其它字符，进行第二次 **完全展开** 。
 
 ``C99`` 对此定义如下：
 
-.. C99: 6.10.3.4 Rescanning and further replacement
-..
+   C99: 6.10.3.4 Rescanning and further replacement
+
    After all parameters in the replacement list have been substituted and # and ## processing
    has taken place, all placemarker preprocessing tokens are removed. Then, the resulting
    preprocessing token sequence is rescanned, along with all subsequent preprocessing tokens
@@ -114,7 +114,7 @@
 ``foo`` 会依然保持 ``不可展开`` ，即便看起来 ``foo(20)`` 是一个可以继续展开的 ``类函数宏`` 。
 
 
-递归
+3. 递归
 -----------------
 
 正是因为 ``C/C++`` 宏在设计时，刻意避免自引用问题，因而，你无法直接通过 ``自引用`` 实现递归（递归都是自引用的）。
@@ -177,7 +177,7 @@
 1. 如何控制 ``eval`` 次数？
 2. 如何去掉最后一个多余的递归？（最后一个例子中的 ``foo_1(0+1+1+1+1)`` )
 
-控制 ``eval`` 次数
+4. 控制 `eval` 次数
 --------------------------
 
 至少有两种方法可以控制 ``eval`` 次数。
@@ -219,7 +219,7 @@
 
 这种方法的缺点是：需要枚举每一个定义（可以通过脚本语言自动生成）；但优点是：让 ``IDE`` / 预处理器 不做无用的工作。
 
-终止递归
+5. 终止递归
 --------------------------
 
 像任何程序一样，我们需要一个终止递归的条件。绝大多数场景下，我们都可以通过递归次数来控制递归的结束。对于上面的例子，
