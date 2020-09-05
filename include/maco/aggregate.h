@@ -7,7 +7,7 @@
 
 #include <maco/basic.h>
 
-#define __MACO_var_full(x) __MACO_swap_ x
+#define __MACO_var_full(x) __MACO_swap x
 #define __MACO_var_name(x) __MACO_1st   x
 #define __MACO_var_type(x) __MACO_rest  x
 
