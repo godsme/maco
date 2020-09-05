@@ -1,2 +1,4 @@
 # maco
-c++ macro library
+c++ macro library. 
+
+https://maco.readthedocs.io/zh_CN/latest/
